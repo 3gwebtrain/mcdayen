@@ -1,3 +1,5 @@
+const x = [];
+
 export function App() {
     return <div>empty</div>;
 }
