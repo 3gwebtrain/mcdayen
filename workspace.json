@@ -3,6 +3,7 @@
     "projects": {
         "components": "libs/components",
         "online-shop": "apps/online-shop",
+        "prop-types": "libs/prop-types",
         "shared-assets-assets": "libs/shared-assets/assets"
     }
 }
