@@ -68,6 +68,7 @@
         }
     },
     "lint-staged": {
-        "*": "prettier --write"
+        "*": "prettier --write",
+        "lint:fix": "eslint --ext .ts,.tsx ./src --no-error-on-unmatched-pattern --fix"
     }
 }
