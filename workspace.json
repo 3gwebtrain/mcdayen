@@ -1,6 +1,7 @@
 {
     "version": 2,
     "projects": {
-        "online-shop": "apps/online-shop"
+        "online-shop": "apps/online-shop",
+        "shared-assets-assets": "libs/shared-assets/assets"
     }
 }

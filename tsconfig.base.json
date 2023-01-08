@@ -14,7 +14,9 @@
         "skipLibCheck": true,
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "@mcdayen/shared-assets/assets": ["libs/shared-assets/assets/src/index.ts"]
+        }
     },
     "exclude": ["node_modules", "tmp"]
 }

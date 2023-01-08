@@ -15,7 +15,15 @@
                 "main": "apps/online-shop/src/main.tsx",
                 "polyfills": "apps/online-shop/src/polyfills.ts",
                 "tsConfig": "apps/online-shop/tsconfig.app.json",
-                "assets": ["apps/online-shop/src/favicon.ico", "apps/online-shop/src/assets"],
+                "assets": [
+                    "apps/online-shop/src/favicon.ico",
+                    "apps/online-shop/src/assets",
+                    {
+                        "input": "libs/shared-assets/assets/src/lib",
+                        "glob": "**/*",
+                        "output": "assets"
+                    }
+                ],
                 "styles": ["apps/online-shop/src/styles.scss"],
                 "scripts": [],
                 "webpackConfig": "@nrwl/react/plugins/webpack"
