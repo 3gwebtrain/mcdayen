@@ -6,7 +6,7 @@
         "start": "nx serve",
         "build": "nx build",
         "test": "nx test",
-        "lint": "eslint --ext .ts,.tsx ./src --no-error-on-unmatched-pattern",
+        "lint": "nx run online-shop:lint",
         "lint:fix": "eslint --ext .ts,.tsx ./src --no-error-on-unmatched-pattern --fix",
         "prettier": "prettier \"**/*.+(json|ts|tsx)\"",
         "format:check": "npm run prettier -- --check",
@@ -71,8 +71,9 @@
     },
     "lint-staged": {
         "*": [
-            "npm run format:check",
-            "npm run lint && npm run lint:fix"
+            "npm run lint",
+            "npm run lint:fix",
+            "npm run format:check"
         ]
     }
 }
