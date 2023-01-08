@@ -1,10 +1,10 @@
 module.exports = {
-  displayName: 'retail-shop',
+  displayName: 'online-shop',
   preset: '../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',
     '^.+\\.[tj]sx?$': 'babel-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/apps/retail-shop',
+  coverageDirectory: '../../coverage/apps/online-shop',
 };

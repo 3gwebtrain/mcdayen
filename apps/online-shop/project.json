@@ -1,6 +1,6 @@
 {
-  "root": "apps/retail-shop",
-  "sourceRoot": "apps/retail-shop/src",
+  "root": "apps/online-shop",
+  "sourceRoot": "apps/online-shop/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,17 +9,17 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/retail-shop",
-        "index": "apps/retail-shop/src/index.html",
+        "outputPath": "dist/apps/online-shop",
+        "index": "apps/online-shop/src/index.html",
         "baseHref": "/",
-        "main": "apps/retail-shop/src/main.tsx",
-        "polyfills": "apps/retail-shop/src/polyfills.ts",
-        "tsConfig": "apps/retail-shop/tsconfig.app.json",
+        "main": "apps/online-shop/src/main.tsx",
+        "polyfills": "apps/online-shop/src/polyfills.ts",
+        "tsConfig": "apps/online-shop/tsconfig.app.json",
         "assets": [
-          "apps/retail-shop/src/favicon.ico",
-          "apps/retail-shop/src/assets"
+          "apps/online-shop/src/favicon.ico",
+          "apps/online-shop/src/assets"
         ],
-        "styles": ["apps/retail-shop/src/styles.scss"],
+        "styles": ["apps/online-shop/src/styles.scss"],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -27,8 +27,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/retail-shop/src/environments/environment.ts",
-              "with": "apps/retail-shop/src/environments/environment.prod.ts"
+              "replace": "apps/online-shop/src/environments/environment.ts",
+              "with": "apps/online-shop/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -43,12 +43,12 @@
     "serve": {
       "executor": "@nrwl/web:dev-server",
       "options": {
-        "buildTarget": "retail-shop:build",
+        "buildTarget": "online-shop:build",
         "hmr": true
       },
       "configurations": {
         "production": {
-          "buildTarget": "retail-shop:build:production",
+          "buildTarget": "online-shop:build:production",
           "hmr": false
         }
       }
@@ -57,14 +57,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/retail-shop/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/online-shop/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/retail-shop"],
+      "outputs": ["coverage/apps/online-shop"],
       "options": {
-        "jestConfig": "apps/retail-shop/jest.config.js",
+        "jestConfig": "apps/online-shop/jest.config.js",
         "passWithNoTests": true
       }
     }

@@ -1,7 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "retail-shop": "apps/retail-shop",
-    "retail-shop-e2e": "apps/retail-shop-e2e"
+    "online-shop": "apps/online-shop"
   }
 }
