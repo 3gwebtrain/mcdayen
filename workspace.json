@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "projects": {
-    "online-shop": "apps/online-shop"
-  }
+    "version": 2,
+    "projects": {
+        "online-shop": "apps/online-shop"
+    }
 }

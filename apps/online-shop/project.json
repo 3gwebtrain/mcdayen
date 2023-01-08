@@ -1,73 +1,70 @@
 {
-  "root": "apps/online-shop",
-  "sourceRoot": "apps/online-shop/src",
-  "projectType": "application",
-  "targets": {
-    "build": {
-      "executor": "@nrwl/web:webpack",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
-      "options": {
-        "compiler": "babel",
-        "outputPath": "dist/apps/online-shop",
-        "index": "apps/online-shop/src/index.html",
-        "baseHref": "/",
-        "main": "apps/online-shop/src/main.tsx",
-        "polyfills": "apps/online-shop/src/polyfills.ts",
-        "tsConfig": "apps/online-shop/tsconfig.app.json",
-        "assets": [
-          "apps/online-shop/src/favicon.ico",
-          "apps/online-shop/src/assets"
-        ],
-        "styles": ["apps/online-shop/src/styles.scss"],
-        "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
-      },
-      "configurations": {
-        "production": {
-          "fileReplacements": [
-            {
-              "replace": "apps/online-shop/src/environments/environment.ts",
-              "with": "apps/online-shop/src/environments/environment.prod.ts"
+    "root": "apps/online-shop",
+    "sourceRoot": "apps/online-shop/src",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/web:webpack",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "compiler": "babel",
+                "outputPath": "dist/apps/online-shop",
+                "index": "apps/online-shop/src/index.html",
+                "baseHref": "/",
+                "main": "apps/online-shop/src/main.tsx",
+                "polyfills": "apps/online-shop/src/polyfills.ts",
+                "tsConfig": "apps/online-shop/tsconfig.app.json",
+                "assets": ["apps/online-shop/src/favicon.ico", "apps/online-shop/src/assets"],
+                "styles": ["apps/online-shop/src/styles.scss"],
+                "scripts": [],
+                "webpackConfig": "@nrwl/react/plugins/webpack"
+            },
+            "configurations": {
+                "production": {
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/online-shop/src/environments/environment.ts",
+                            "with": "apps/online-shop/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "optimization": true,
+                    "outputHashing": "all",
+                    "sourceMap": false,
+                    "namedChunks": false,
+                    "extractLicenses": true,
+                    "vendorChunk": false
+                }
             }
-          ],
-          "optimization": true,
-          "outputHashing": "all",
-          "sourceMap": false,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": false
+        },
+        "serve": {
+            "executor": "@nrwl/web:dev-server",
+            "options": {
+                "buildTarget": "online-shop:build",
+                "hmr": true
+            },
+            "configurations": {
+                "production": {
+                    "buildTarget": "online-shop:build:production",
+                    "hmr": false
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["apps/online-shop/**/*.{ts,tsx,js,jsx}"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/apps/online-shop"],
+            "options": {
+                "jestConfig": "apps/online-shop/jest.config.js",
+                "passWithNoTests": true
+            }
         }
-      }
     },
-    "serve": {
-      "executor": "@nrwl/web:dev-server",
-      "options": {
-        "buildTarget": "online-shop:build",
-        "hmr": true
-      },
-      "configurations": {
-        "production": {
-          "buildTarget": "online-shop:build:production",
-          "hmr": false
-        }
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/online-shop/**/*.{ts,tsx,js,jsx}"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/online-shop"],
-      "options": {
-        "jestConfig": "apps/online-shop/jest.config.js",
-        "passWithNoTests": true
-      }
-    }
-  },
-  "tags": []
+    "tags": []
 }
