@@ -69,7 +69,7 @@
     },
     "lint-staged": {
         "*": [
-            "prettier --write",
+            "prettier \"**/*.+(json|ts|tsx)\"",
             "eslint --ext .ts,.tsx ./src --no-error-on-unmatched-pattern"
         ]
     }
