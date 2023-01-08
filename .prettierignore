@@ -2,9 +2,7 @@
 *
 /dist
 /coverage
-*.svg
-**/.svg
-**/assets
+
 !*.ts
 !*.tsx
 !*/
