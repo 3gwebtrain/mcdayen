@@ -1,0 +1,23 @@
+{
+    "root": "libs/micro-components",
+    "sourceRoot": "libs/micro-components/src",
+    "projectType": "library",
+    "tags": [],
+    "targets": {
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/micro-components/**/*.{ts,tsx,js,jsx}"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/micro-components"],
+            "options": {
+                "jestConfig": "libs/micro-components/jest.config.js",
+                "passWithNoTests": true
+            }
+        }
+    }
+}

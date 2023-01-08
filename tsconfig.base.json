@@ -16,6 +16,7 @@
         "baseUrl": ".",
         "paths": {
             "@mcdayen/components": ["libs/components/src/index.ts"],
+            "@mcdayen/micro-components": ["libs/micro-components/src/index.ts"],
             "@mcdayen/prop-types": ["libs/prop-types/src/index.ts"],
             "@mcdayen/shared-assets/assets": ["libs/shared-assets/assets/src/index.ts"]
         }

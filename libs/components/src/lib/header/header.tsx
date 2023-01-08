@@ -1,14 +1,7 @@
-import styles from './header.module.scss';
+import { ChildProps } from '@mcdayen/prop-types';
 
-/* eslint-disable-next-line */
-export interface HeaderProps {}
-
-export function Header(props: HeaderProps) {
-    return (
-        <div className={styles['container']}>
-            <h1>Welcome to Header!</h1>
-        </div>
-    );
+export function Header(props: ChildProps): JSX.Element {
+    return <header className="flex justify-between">{props.children}</header>;
 }
 
 export default Header;
