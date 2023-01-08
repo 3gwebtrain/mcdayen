@@ -15,6 +15,7 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
+            "@mcdayen/components": ["libs/components/src/index.ts"],
             "@mcdayen/shared-assets/assets": ["libs/shared-assets/assets/src/index.ts"]
         }
     },
