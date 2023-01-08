@@ -68,8 +68,8 @@
         }
     },
     "lint-staged": {
-        "*": [
-            "prettier --write ."
+        "linters": [
+            "prettier --write"
         ]
     }
 }
