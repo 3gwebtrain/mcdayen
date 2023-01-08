@@ -69,7 +69,8 @@
     },
     "lint-staged": {
         "*": [
-            "prettier \"**/*.+(json|ts|tsx)\"",
+            "prettier \"**/*.+(json|ts|tsx)\" -write",
+            "eslint",
             "npm run lint && npm run test"
         ]
     }
