@@ -3,7 +3,7 @@ import { Footer, Header } from '@mcdayen/components';
 export function App() {
     return (
         <div>
-            empty
+            <div className="bg-indigo-500 p-2 font-mono">Hello!</div>
             <Header />
             <picture>
                 <source media="(max-width:768px)" srcSet="/assets/mobile/fashion_front.jpeg"></source>
