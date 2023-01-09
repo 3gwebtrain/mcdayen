@@ -5,7 +5,7 @@ export function NaviLinks({ passNaviLinks: { naviLinks, classProps} }: { passNav
         <nav className={classProps}>
             {naviLinks.length &&
                 naviLinks.map((linkProp) => (
-                    <a key={linkProp.id} aria-labelledby={linkProp.aria} href={linkProp.link}>
+                    <a className='block' key={linkProp.id} aria-labelledby={linkProp.aria} href={linkProp.link}>
                         {linkProp.label}
                     </a>
                 ))}
