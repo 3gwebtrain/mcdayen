@@ -1,13 +1,11 @@
-import styles from './mobile-menu.module.scss';
+import { MenuHandlerProps } from "@mcdayen/prop-types";
 
-/* eslint-disable-next-line */
-export interface MobileMenuProps {}
-
-export function MobileMenu(props: MobileMenuProps) {
+export function MobileMenu({menuHandler}:MenuHandlerProps) {
+    function showMenu() {
+        menuHandler();
+    }
     return (
-        <div className={styles['container']}>
-            <h1>Welcome to MobileMenu!</h1>
-        </div>
+        <img onClick={showMenu} className="lg:hidden" alt="click to search" width={'20px'} src="/assets/icons/icon-mobile-menu.svg" />
     );
 }
 

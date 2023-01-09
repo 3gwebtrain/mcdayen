@@ -1,8 +1,8 @@
-import { NaviLinkProps } from '@mcdayen/prop-types';
+import { NaviLinksProps } from '@mcdayen/prop-types';
 
-export function NaviLinks({ naviLinks }: { naviLinks: NaviLinkProps[] }): JSX.Element {
+export function NaviLinks({ passNaviLinks: { naviLinks, classProps} }: { passNaviLinks: NaviLinksProps }): JSX.Element {
     return (
-        <nav className="flex gap-4">
+        <nav className={classProps}>
             {naviLinks.length &&
                 naviLinks.map((linkProp) => (
                     <a key={linkProp.id} aria-labelledby={linkProp.aria} href={linkProp.link}>

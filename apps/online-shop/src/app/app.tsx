@@ -1,5 +1,5 @@
 import { Footer, Header } from '@mcdayen/components';
-import { Cart, Logo, NaviLinks, QuickSearch, User } from '@mcdayen/micro-components';
+import { Cart, Logo, MobileMenu, NaviLinks, QuickSearch, User } from '@mcdayen/micro-components';
 import { initialNaviLinksProps, NameProps } from '@mcdayen/prop-types';
 
 const nameData: NameProps = {
@@ -7,15 +7,19 @@ const nameData: NameProps = {
 };
 
 export function App() {
+    function mobileMenuHandler() {
+        console.log('Mobile menu handler called');
+    }
     return (
-        <div className="flex flex-col py-6 pl-[70px] pr-5  border-solid border-2 border-green-200 min-h-screen flex-wrap">
+        <div className="flex flex-col py-6  min-h-screen flex-wrap px-5 lg:pl-[70px] pr-5">
             <Header>
                 <Logo />
-                <NaviLinks naviLinks={initialNaviLinksProps} />
+                <NaviLinks passNaviLinks={initialNaviLinksProps} />
                 <div className="flex gap-3">
                     <QuickSearch />
                     <Cart />
                     <User />
+                    <MobileMenu menuHandler={mobileMenuHandler} />
                 </div>
             </Header>
             <div className="bg-indigo-500 p-2 text-xs">Hello! {nameData.name}</div>

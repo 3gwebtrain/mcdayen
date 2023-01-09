@@ -15,7 +15,15 @@ export interface NaviLinkProps {
     id: string;
 }
 
-export const initialNaviLinksProps: NaviLinkProps[] = [
+
+export interface NaviLinksProps {
+    classProps: string;
+    naviLinks:NaviLinkProps[]
+}
+
+export const initialNaviLinksProps: NaviLinksProps = {
+    classProps: 'gap-4 hidden lg:flex',
+    naviLinks: [
     {
         label: 'The Edit',
         link: 'theEditPage',
@@ -76,4 +84,9 @@ export const initialNaviLinksProps: NaviLinkProps[] = [
         aria: 'click to visit the Home page',
         id: 'homePage',
     },
-];
+]
+}
+
+export interface MenuHandlerProps {
+    menuHandler:() => void
+}
