@@ -1,28 +1,30 @@
-import { Footer, Header } from '@mcdayen/components';
-import { Cart, Logo, MobileMenu, NaviLinks, QuickSearch, User } from '@mcdayen/micro-components';
-import { initialNaviLinksProps } from '@mcdayen/prop-types';
+import { Footer, Header, ProductCart, Tabs } from '@mcdayen/components';
+import { Cart, Logo, MobileMenu, NaviLinks, QuickSearch, TabButton, User } from '@mcdayen/micro-components';
+import { CartProps, initialCartProps, initialNaviLinksProps, NaviLinksProps } from '@mcdayen/prop-types';
 import { useEffect, useState } from 'react';
 
 export function App() {
     
     const [mobileMenu, setMobileMenu] = useState<boolean>(false);
-    const [linkProps, setLinkProps] = useState(initialNaviLinksProps);
+    const [linkProps, setLinkProps] = useState<NaviLinksProps|null>(null);
+    const [cartProps, setCartProps] = useState<CartProps|null>(null);
 
     function mobileMenuHandler() {
         setMobileMenu((current: boolean) => !current);
             setLinkProps((props) => {
-                return !mobileMenu ? {...initialNaviLinksProps, classProps:props.classProps + ' hidden' } : {...initialNaviLinksProps }
+                return !mobileMenu ? {...initialNaviLinksProps, classProps:props?.classProps + ' hidden' } : {...initialNaviLinksProps }
             })
-        
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => { mobileMenuHandler() },[]);
+    useEffect(() => { mobileMenuHandler() }, []);
+    
+    useEffect(() => { setCartProps(initialCartProps) }, [setCartProps]);
 
     return (
         <section style={{border:'1px solid red'}}  className="box-border m-auto flex flex-col pl-[18px] py-6  min-h-screen flex-wrap px-5 md:container md:w-[1440px] md:pl-[70px] pr-5 ">
             <Header>
                 <Logo />
-                 <NaviLinks passNaviLinks={linkProps} />
+                {linkProps && <NaviLinks passNaviLinks={linkProps} />}
                 <div className="flex gap-3">
                     <QuickSearch />
                     <Cart />
@@ -31,17 +33,19 @@ export function App() {
                 </div>
             </Header>
             <main style={{border:'1px solid red'}} className='flex flex-col justify-between lg:flex-row'>
-                <div className='flex-none hidden lg:block'>
-                    
+                <div className='hidden lg:block'>
+                    <Tabs>
+                        <TabButton>content-1</TabButton>
+                        <TabButton>content-2</TabButton>
+                        <TabButton>content-3</TabButton>
+                    </Tabs>
                 </div>
                 <div className='grow-0'>
-                    <picture>
-                        <source media="(max-width:768px)" srcSet="/assets/mobile/model_front.jpeg"></source>
-                        <source media="(min-width:769px)" srcSet="/assets/desktop/model_front.jpeg"></source>
-                        <img alt="women" src="/assets/desktop/model_front.jpeg" />
-                    </picture>
+                    {cartProps && <ProductCart passCartProps={cartProps} />}
                 </div>
-                <div className='flex-none'>3</div>
+                <div className='flex-none'>
+                    
+                </div>
             </main>
           
             <Footer />
