@@ -2,22 +2,31 @@ import { Footer, Header, ProductCart, Tabs } from '@mcdayen/components';
 import { Cart, Logo, MobileMenu, NaviLinks, QuickSearch, TabButton, User } from '@mcdayen/micro-components';
 import { CartProps, initialCartProps, initialNaviLinksProps, NaviLinksProps } from '@mcdayen/prop-types';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCartDetails } from './store/cart.slice';
+import { AppDispatch } from './store/store.config';
 
 export function App() {
     
+    const dispatch:AppDispatch = useDispatch();
     const [mobileMenu, setMobileMenu] = useState<boolean>(false);
-    const [linkProps, setLinkProps] = useState<NaviLinksProps|null>(null);
-    const [cartProps, setCartProps] = useState<CartProps|null>(null);
+    const [linkProps, setLinkProps] = useState<NaviLinksProps | null>(null);
+    const [cartProps, setCartProps] = useState<CartProps | null>(null);
 
     function mobileMenuHandler() {
         setMobileMenu((current: boolean) => !current);
-            setLinkProps((props) => {
-                return !mobileMenu ? {...initialNaviLinksProps, classProps:props?.classProps + ' hidden' } : {...initialNaviLinksProps }
-            })
+        setLinkProps((props) => {
+            return !mobileMenu ? { ...initialNaviLinksProps, classProps: props?.classProps + ' hidden' } : { ...initialNaviLinksProps }
+        })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => { mobileMenuHandler() }, []);
-    
+
+    useEffect(() => {
+        dispatch(fetchCartDetails()).then(({payload}) => {
+            console.log('response', payload);
+        });
+    },[dispatch]);
+
+    useEffect(() => { mobileMenuHandler() },[]);
     useEffect(() => { setCartProps(initialCartProps) }, [setCartProps]);
 
     return (
