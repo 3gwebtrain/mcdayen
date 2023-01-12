@@ -1,12 +1,9 @@
-import styles from './product-thumb.module.scss';
+import { imageProps } from "@mcdayen/prop-types";
 
-/* eslint-disable-next-line */
-export interface ProductThumbProps {}
-
-export function ProductThumb(props: ProductThumbProps) {
+export function ProductThumb({value}:{value:imageProps[]}) {
     return (
-        <div className={styles['container']}>
-            <h1>Welcome to ProductThumb!</h1>
+        <div>
+            {value.map((v) => <span key={v.id}>{v.urls.sm}</span>)}
         </div>
     );
 }

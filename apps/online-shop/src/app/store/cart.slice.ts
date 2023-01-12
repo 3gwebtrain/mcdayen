@@ -1,21 +1,25 @@
-import { CartProps, initialCartProps } from "@mcdayen/prop-types";
+import { CartProps, mockResponseCartProps } from "@mcdayen/prop-types";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchCartDetails = createAsyncThunk('store/cart', async () => {
     try {
         const staticData = await new Promise((resolve, _) => {
             setTimeout(() => {
-                resolve('Hi there!')
+                resolve(mockResponseCartProps)
             }, 1000);
         });
-        return staticData;
-    } catch (error:unknown) {
+        return staticData as CartProps;
+    } catch (error: unknown) {
         throw Error(error as string);
     }
-})
+});
 
-const initialCart: CartProps = {
-    ...initialCartProps
+export interface RootStoreProps {
+    product:CartProps
+}
+
+const initialCart:RootStoreProps  = {
+    product: { ...mockResponseCartProps }
 };
 
 export const CartSlice = createSlice({
@@ -23,8 +27,8 @@ export const CartSlice = createSlice({
     initialState:initialCart,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(fetchCartDetails.fulfilled, (state, { payload }) => {
-            state.title = { status: true, value: String(payload) };
+        builder.addCase(fetchCartDetails.fulfilled, (state, {payload}) => {
+            state = { ...state, ...payload } ;
         })
     }
 

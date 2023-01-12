@@ -5,7 +5,7 @@ export function MobileMenu({menuHandler}:MenuHandlerProps) {
         menuHandler();
     }
     return (
-        <img onClick={showMenu} className="lg:hidden" alt="click to search" width={'20px'} src="/assets/icons/icon-mobile-menu.svg" />
+        <img id="mobileMenu" onClick={showMenu} className="lg:hidden" alt="click to search" width={'20px'} src="/assets/icons/icon-mobile-menu.svg" />
     );
 }
 

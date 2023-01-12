@@ -22,7 +22,7 @@ export interface NaviLinksProps {
 }
 
 export const initialNaviLinksProps: NaviLinksProps = {
-    classProps: 'uppercase flex text-sm absolute right-0  top-8 p-5 bg-[#ffffff] flex-col lg:p-0 w-[200px] lg:w-auto lg:gap-2 lg:flex lg:top-0 lg:relative lg:bg-transparent lg:flex-row' ,
+    classProps: 'uppercase  text-sm absolute right-0  top-8 p-5 bg-[#ffffff] flex-col lg:p-0 w-[200px] lg:w-auto lg:gap-2 lg:flex  lg:top-0 lg:relative lg:bg-transparent lg:flex-row' ,
     naviLinks: [
     {
         label: 'The Edit',

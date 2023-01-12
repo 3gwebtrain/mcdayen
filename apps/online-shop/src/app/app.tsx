@@ -1,33 +1,37 @@
 import { Footer, Header, ProductCart, Tabs } from '@mcdayen/components';
 import { Cart, Logo, MobileMenu, NaviLinks, QuickSearch, TabButton, User } from '@mcdayen/micro-components';
-import { CartProps, initialCartProps, initialNaviLinksProps, NaviLinksProps } from '@mcdayen/prop-types';
+import { initialNaviLinksProps, NaviLinksProps } from '@mcdayen/prop-types';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchCartDetails } from './store/cart.slice';
-import { AppDispatch } from './store/store.config';
+import { AppDispatch, RootState } from './store/store.config';
 
 export function App() {
-    
     const dispatch:AppDispatch = useDispatch();
+    dispatch(fetchCartDetails());
+    const {product} = useSelector((state:RootState) => state.cartStore)
     const [mobileMenu, setMobileMenu] = useState<boolean>(false);
     const [linkProps, setLinkProps] = useState<NaviLinksProps | null>(null);
-    const [cartProps, setCartProps] = useState<CartProps | null>(null);
 
     function mobileMenuHandler() {
         setMobileMenu((current: boolean) => !current);
-        setLinkProps((props) => {
-            return !mobileMenu ? { ...initialNaviLinksProps, classProps: props?.classProps + ' hidden' } : { ...initialNaviLinksProps }
-        })
     }
 
+     useEffect(() => {
+        setLinkProps(initialNaviLinksProps);
+        const mobileId = document.getElementById('mobileMenu');
+         if (mobileId?.offsetParent) {
+            mobileMenuHandler();
+        }
+     }, []);
+    
     useEffect(() => {
-        dispatch(fetchCartDetails()).then(({payload}) => {
-            console.log('response', payload);
-        });
-    },[dispatch]);
-
-    useEffect(() => { mobileMenuHandler() },[]);
-    useEffect(() => { setCartProps(initialCartProps) }, [setCartProps]);
+        setLinkProps((props) => {
+            return mobileMenu ? { ...initialNaviLinksProps } : { ...initialNaviLinksProps, classProps: props?.classProps + ' hidden' }
+        })
+    }, [mobileMenu]);
+    
+    
 
     return (
         <section style={{border:'1px solid red'}}  className="box-border m-auto flex flex-col pl-[18px] py-6  min-h-screen flex-wrap px-5 md:container md:w-[1440px] md:pl-[70px] pr-5 ">
@@ -50,7 +54,7 @@ export function App() {
                     </Tabs>
                 </div>
                 <div className='grow-0'>
-                    {cartProps && <ProductCart passCartProps={cartProps} />}
+                    {product && <ProductCart passCartProps={product} />}
                 </div>
                 <div className='flex-none'>
                     

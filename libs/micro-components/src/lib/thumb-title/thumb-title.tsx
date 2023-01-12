@@ -1,5 +1,5 @@
 
-export function ProductInfo({value}:{value:string}) {
+export function ThumbTitle({value}:{value:string}) {
     return (
         <div>
             <h1>{value}</h1>
@@ -7,4 +7,4 @@ export function ProductInfo({value}:{value:string}) {
     );
 }
 
-export default ProductInfo;
+export default ThumbTitle;

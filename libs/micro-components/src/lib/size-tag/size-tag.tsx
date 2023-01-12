@@ -1,12 +1,9 @@
-import styles from './size-tag.module.scss';
+import { sizeProps } from "@mcdayen/prop-types";
 
-/* eslint-disable-next-line */
-export interface SizeTagProps {}
-
-export function SizeTag(props: SizeTagProps) {
+export function SizeTag({value}:{value:sizeProps[]}) {
     return (
-        <div className={styles['container']}>
-            <h1>Welcome to SizeTag!</h1>
+        <div>
+            {value.map((v) => <span>{v.size}</span>)}
         </div>
     );
 }
