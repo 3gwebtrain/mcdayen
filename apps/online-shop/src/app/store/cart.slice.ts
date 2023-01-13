@@ -27,7 +27,19 @@ export const CartSlice = createSlice({
     initialState:initialCart,
     reducers: {
         sizeHandler: (state, { payload }) => {
-            state.product.sizeSelected.value = payload.size;
+            const { sizeSelected, sizeLabels } = { ...state.product };
+            sizeSelected.value = payload.size;
+            //need to move in to helper lib.
+            const updated = sizeLabels.value.map(item => {
+                if (item.id === payload.id) {
+                    item.isSelected = true
+                } else {
+                    item.isSelected = false
+                }
+                
+                return item;
+            });
+            state.product.sizeLabels.value = updated;
         }
     },
     extraReducers: (builder) => {
