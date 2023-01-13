@@ -25,7 +25,11 @@ const initialCart:RootStoreProps  = {
 export const CartSlice = createSlice({
     name: 'cart',
     initialState:initialCart,
-    reducers: {},
+    reducers: {
+        sizeHandler: (state, { payload }) => {
+            console.log(state, payload);
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchCartDetails.fulfilled, (state, {payload}) => {
             state = { ...state, ...payload } ;
@@ -33,4 +37,5 @@ export const CartSlice = createSlice({
     }
 
 });
+export const { sizeHandler } =  CartSlice.actions;
 export default CartSlice.reducer;

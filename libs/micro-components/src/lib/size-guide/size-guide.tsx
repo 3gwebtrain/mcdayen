@@ -2,7 +2,7 @@
 export function SizeGuide({value}:{value:string}) {
     return (
         <div>
-            <h1>{value}</h1>
+            <span className="text-sm"><a href="https://coloths.com" aria-details="link">{value}</a></span>
         </div>
     );
 }

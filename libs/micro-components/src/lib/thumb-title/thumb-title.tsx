@@ -1,8 +1,8 @@
 
 export function ThumbTitle({value}:{value:string}) {
     return (
-        <div>
-            <h1>{value}</h1>
+        <div className="mb-1">
+            <p className="text-sm">{value}</p>
         </div>
     );
 }

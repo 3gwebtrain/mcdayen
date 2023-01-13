@@ -2,7 +2,7 @@
 export function ProductTitle({value}:{value:string}) {
     return (
         <div>
-            <h1>{value}</h1>
+            <h1 className="text-[32px]">{value}</h1>
         </div>
     );
 }

@@ -31,10 +31,9 @@ export function App() {
         })
     }, [mobileMenu]);
     
-    
 
     return (
-        <section style={{border:'1px solid red'}}  className="box-border m-auto flex flex-col pl-[18px] py-6  min-h-screen flex-wrap px-5 md:container md:w-[1440px] md:pl-[70px] pr-5 ">
+        <section  className="box-border m-auto flex flex-col pl-[18px] py-6  min-h-screen flex-wrap px-5 md:container md:w-[1440px] md:pl-[70px] pr-5 ">
             <Header>
                 <Logo />
                 {linkProps && <NaviLinks passNaviLinks={linkProps} />}
@@ -45,7 +44,7 @@ export function App() {
                     <MobileMenu menuHandler={mobileMenuHandler} />
                 </div>
             </Header>
-            <main style={{border:'1px solid red'}} className='flex flex-col justify-between lg:flex-row'>
+            <main  className='flex flex-col justify-between lg:flex-row'>
                 <div className='hidden lg:block'>
                     <Tabs>
                         <TabButton>content-1</TabButton>
@@ -54,7 +53,7 @@ export function App() {
                     </Tabs>
                 </div>
                 <div className='grow-0'>
-                    {product && <ProductCart passCartProps={product} />}
+                    {product && <ProductCart  passCartProps={product} />}
                 </div>
                 <div className='flex-none'>
                     

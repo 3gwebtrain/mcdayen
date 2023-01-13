@@ -2,7 +2,7 @@
 export function ProductInfo({value}:{value:string}) {
     return (
         <div>
-            <h1>{value}</h1>
+            <p className="text-sm">{value}</p>
         </div>
     );
 }

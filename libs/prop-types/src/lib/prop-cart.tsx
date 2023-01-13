@@ -44,11 +44,11 @@ export const mockResponseCartProps:CartProps = {
     titileThumb: { status: true, value: 'Color Conchiglia' },
     thumbUrls: {
         status: true, value: [
-            { name: 'thumb-front', urls:{sm:'/assets/mobile/model_front.jpeg',lg:''}, aria: 'The front view thumb', id: 'thumb-front' },
-            { name: 'thumb-side', urls: { sm:'/assets/mobile/model_front.jpeg',lg:''}, aria: 'The side view thumb', id: 'thumb-side' }
+            { name: 'thumb-front', urls:{sm:'/assets/icons/icon-model-front.png',lg:''}, aria: 'The front view thumb', id: 'thumb-front' },
+            { name: 'thumb-side', urls: { sm:'/assets/icons/icon-model-side.png',lg:''}, aria: 'The side view thumb', id: 'thumb-side' }
         ]
     },
-    sizeSelected: {status:true, value:'xx'},
+    sizeSelected: {status:true, value:''},
     sizeGuide: {status:true, value:'SIZE GUIDE'},
     sizeLabels: {
         status: true, value: [

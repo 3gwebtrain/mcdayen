@@ -1,8 +1,8 @@
 
 export function ProductPrice({value}:{value:string}) {
     return (
-        <div>
-            <h1>{value}</h1>
+        <div className="mb-2">
+            <span className="text-sm"><strong>{value}</strong></span>
         </div>
     );
 }
