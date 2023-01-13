@@ -1,6 +1,6 @@
-import { Footer, Header, ProductCart, Tabs } from '@mcdayen/components';
+import { Footer, Header, ProductCart, ProductPhotoGallery, Tabs } from '@mcdayen/components';
 import { Cart, Logo, MobileMenu, NaviLinks, QuickSearch, TabButton, User } from '@mcdayen/micro-components';
-import { initialNaviLinksProps, NaviLinksProps, sizeProps } from '@mcdayen/prop-types';
+import { initialNaviLinksProps, initialPhotoProps, NaviLinksProps, sizeProps } from '@mcdayen/prop-types';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCartDetails, sizeHandler } from './store/cart.slice';
@@ -57,10 +57,10 @@ export function App() {
                     </Tabs>
                 </div>
                 <div className='grow-0'>
-                    {product && <ProductCart sizeSelect={onSizeSelect}  passCartProps={product} />}
+                   {initialPhotoProps.length && <ProductPhotoGallery gallery={initialPhotoProps} />}
                 </div>
                 <div className='flex-none'>
-                    
+                    {product && <ProductCart sizeSelect={onSizeSelect}  passCartProps={product} />}
                 </div>
             </main>
           

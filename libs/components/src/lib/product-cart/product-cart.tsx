@@ -11,7 +11,7 @@ export function ProductCart({ passCartProps, sizeSelect}: { passCartProps: CartP
     const { title, titleInfo, price, titileThumb, thumbUrls, sizeSelected, sizeGuide, sizeLabels, addBtnLabel } = passCartProps;
     
     return (
-        <div>
+        <div  className="flex flex-col sm:pr-10">
             {title.status && <ProductTitle {...title} />}
             {titleInfo.status && <ProductInfo {...titleInfo} />}
             {price.status && <ProductPrice {...price} />}

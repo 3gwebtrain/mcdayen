@@ -5,8 +5,8 @@ export function AddCartBtn({ value, iconUrl }: { value: string, iconUrl: string 
         window.open(iconUrl);
     }
     return (
-        <div>
-            <button onClick={proceedToCheckOut} className="bg-black w-full text-sm rounded-full text-white px-4 py-2">{value}</button>
+        <div  className="w-full ml-auto text-center mr-auto">
+            <button onClick={proceedToCheckOut} className="bg-black w-full text-sm rounded-full text-white  py-2">{value}</button>
         </div>
     );
 }
