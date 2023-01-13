@@ -27,7 +27,7 @@ export const CartSlice = createSlice({
     initialState:initialCart,
     reducers: {
         sizeHandler: (state, { payload }) => {
-            state.product.sizeSelected.value = ( payload.size);
+            state.product.sizeSelected.value = payload.size;
         }
     },
     extraReducers: (builder) => {
