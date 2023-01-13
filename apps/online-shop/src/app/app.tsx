@@ -1,9 +1,9 @@
 import { Footer, Header, ProductCart, Tabs } from '@mcdayen/components';
 import { Cart, Logo, MobileMenu, NaviLinks, QuickSearch, TabButton, User } from '@mcdayen/micro-components';
-import { initialNaviLinksProps, NaviLinksProps } from '@mcdayen/prop-types';
+import { initialNaviLinksProps, NaviLinksProps, sizeProps } from '@mcdayen/prop-types';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCartDetails } from './store/cart.slice';
+import { fetchCartDetails, sizeHandler } from './store/cart.slice';
 import { AppDispatch, RootState } from './store/store.config';
 
 export function App() {
@@ -30,6 +30,10 @@ export function App() {
             return mobileMenu ? { ...initialNaviLinksProps } : { ...initialNaviLinksProps, classProps: props?.classProps + ' hidden' }
         })
     }, [mobileMenu]);
+
+    function onSizeSelect(selectedSize: sizeProps) {
+        dispatch(sizeHandler(selectedSize));
+    }
     
 
     return (
@@ -53,7 +57,7 @@ export function App() {
                     </Tabs>
                 </div>
                 <div className='grow-0'>
-                    {product && <ProductCart  passCartProps={product} />}
+                    {product && <ProductCart sizeSelect={onSizeSelect}  passCartProps={product} />}
                 </div>
                 <div className='flex-none'>
                     

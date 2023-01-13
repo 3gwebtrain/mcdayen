@@ -1,6 +1,4 @@
-
-
-export function SizeSelected({value}:{value:string}) {
+export function SizeSelected({value}:{value:string}):JSX.Element {
     return (
         <span><strong>{value}</strong></span>
     );

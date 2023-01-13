@@ -5,9 +5,9 @@ import {
     ProductThumb,
     ProductTitle, SizeGuide, SizeSelected, SizeTag, ThumbTitle
 } from '@mcdayen/micro-components';
-import { CartProps } from '@mcdayen/prop-types';
+import { CartProps, sizeProps } from '@mcdayen/prop-types';
 
-export function ProductCart({ passCartProps}: { passCartProps: CartProps  }): JSX.Element {
+export function ProductCart({ passCartProps, sizeSelect}: { passCartProps: CartProps, sizeSelect:(v:sizeProps)=>void }): JSX.Element {
     const { title, titleInfo, price, titileThumb, thumbUrls, sizeSelected, sizeGuide, sizeLabels, addBtnLabel } = passCartProps;
     
     return (
@@ -21,7 +21,7 @@ export function ProductCart({ passCartProps}: { passCartProps: CartProps  }): JS
                 {sizeSelected.status && <SizeSelected  {...sizeSelected} />}
                 {sizeGuide.status && <SizeGuide {...sizeGuide} />}
             </div>
-            {sizeLabels.status && <SizeTag  {...sizeLabels} /> }
+            {sizeLabels.status && <SizeTag sizeSelectFn={sizeSelect}  {...sizeLabels} /> }
             {addBtnLabel.status && <AddCartBtn {...addBtnLabel} /> }
         </div>
     );
