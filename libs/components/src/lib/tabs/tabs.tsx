@@ -13,15 +13,16 @@ export function Tabs({ tabProps }: { tabProps: TabsProps }) {
        setTabContent(content);
     }, [tabIndex, setTabContent, tabProps]);
     
-    return <><div className="flex flex-wrap gap-5 mb-1">
-            {tabProps.length && tabProps.map((tabData, index:number) => {
-                return <div  key={tabData.tab.id}>
-                    <TabButton tabProps={tabData} index={tabIndex} queIndex={index} callBack={tabHandler}  />
-                </div>
-            })}
-        </div>
+    return <div>
+        <div className="flex flex-wrap gap-5 mb-1">
+                {tabProps.length && tabProps.map((tabData, index:number) => {
+                    return <div  key={tabData.tab.id}>
+                        <TabButton tabProps={tabData} index={tabIndex} queIndex={index} callBack={tabHandler}  />
+                    </div>
+                })}
+            </div>
             {tabContent && <TabContent {...tabContent} />}
-        </>
+    </div>
 }
 
 export default Tabs;

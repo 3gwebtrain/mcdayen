@@ -49,7 +49,9 @@ export function App() {
             </Header>
             <main  className='flex flex-col justify-between lg:flex-row'>
                 <div className='hidden lg:block w-[325px]'>
-                    <Tabs tabProps={initialTabsProps}  />
+                    <div>
+                        <Tabs tabProps={initialTabsProps}  />
+                    </div>
                 </div>
                 <div className='grow-0 flex-auto' >
                    {initialPhotoProps.length && <ProductPhotoGallery gallery={initialPhotoProps} />}

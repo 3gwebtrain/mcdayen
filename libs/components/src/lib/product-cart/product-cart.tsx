@@ -36,13 +36,13 @@ export function ProductCart({ passCartProps, sizeSelect }: { passCartProps: Cart
     
     return (
         <div  className="relative w-[325px]">
-            <div className={`${isFixed ? 'sticky' : ''} flex flex-col p-10 right-0 top-0 bg-white`} >
+            <div className={`${isFixed ? 'sticky' : ''} flex flex-col p-10 pt-0 right-0 top-0 bg-white`} >
                 {title.status && <ProductTitle {...title} />}
                 {titleInfo.status && <ProductInfo {...titleInfo} />}
                 {price.status && <ProductPrice {...price} />}
                 {titileThumb.status && <ThumbTitle {...titileThumb} />}
                 {thumbUrls.status && <ProductThumb {...thumbUrls} />}
-                <div className="flex justify-between">
+                <div className="flex justify-between mb-4">
                     {sizeSelected.status && <SizeSelected  {...sizeSelected} />}
                     {sizeGuide.status && <SizeGuide {...sizeGuide} />}
                 </div>

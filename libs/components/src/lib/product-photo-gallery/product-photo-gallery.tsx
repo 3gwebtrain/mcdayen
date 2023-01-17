@@ -24,7 +24,7 @@ export function ProductPhotoGallery({ gallery }: { gallery: PhotoPropsArray }) {
     }
 
     return (
-        <ul className="flex flex-col gap-y-8 p-10">
+        <ul className="flex flex-wrap lg:flex-col gap-y-8 p-5 pt-0">
             {imagePanetrator(gallery) }
         </ul>
     );
