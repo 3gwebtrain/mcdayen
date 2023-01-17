@@ -1,3 +1,4 @@
+export * from './lib/tab-content/tab-content';
 export * from './lib/double-photo-frame/double-photo-frame';
 export * from './lib/single-photo-frame/single-photo-frame';
 export * from './lib/add-cart-btn/add-cart-btn';

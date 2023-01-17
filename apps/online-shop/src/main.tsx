@@ -19,7 +19,6 @@ root.render(
                 <PersistGate persistor={presister}>
                     <App />
                 </PersistGate>
-                
             </Provider>
         </BrowserRouter>
     </StrictMode>

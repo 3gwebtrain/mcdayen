@@ -1,6 +1,6 @@
 import { Footer, Header, ProductCart, ProductPhotoGallery, Tabs } from '@mcdayen/components';
-import { Cart, Logo, MobileMenu, NaviLinks, QuickSearch, TabButton, User } from '@mcdayen/micro-components';
-import { initialNaviLinksProps, initialPhotoProps, NaviLinksProps, sizeProps } from '@mcdayen/prop-types';
+import { Cart, Logo, MobileMenu, NaviLinks, QuickSearch, User } from '@mcdayen/micro-components';
+import { initialNaviLinksProps, initialPhotoProps, initialTabsProps, NaviLinksProps, sizeProps } from '@mcdayen/prop-types';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCartDetails, sizeHandler } from './store/cart.slice';
@@ -35,9 +35,8 @@ export function App() {
         dispatch(sizeHandler(selectedSize));
     }
     
-
     return (
-        <section  className="box-border m-auto flex flex-col pl-[18px] py-6  min-h-screen flex-wrap px-5 md:container md:w-[1440px] md:pl-[70px] pr-5 ">
+        <section  className="box-border m-auto flex flex-col pl-[18px] py-6   min-h-screen flex-wrap px-5 md:container md:w-[1440px] md:pl-[70px] pr-5 ">
             <Header>
                 <Logo />
                 {linkProps && <NaviLinks passNaviLinks={linkProps} />}
@@ -49,21 +48,16 @@ export function App() {
                 </div>
             </Header>
             <main  className='flex flex-col justify-between lg:flex-row'>
-                <div className='hidden lg:block'>
-                    <Tabs>
-                        <TabButton>content-1</TabButton>
-                        <TabButton>content-2</TabButton>
-                        <TabButton>content-3</TabButton>
-                    </Tabs>
+                <div className='hidden lg:block w-[325px]'>
+                    <Tabs tabProps={initialTabsProps}  />
                 </div>
-                <div className='grow-0'>
+                <div className='grow-0 flex-auto' >
                    {initialPhotoProps.length && <ProductPhotoGallery gallery={initialPhotoProps} />}
                 </div>
-                <div className='flex-none'>
+                <div className='flex bg-white'>
                     {product && <ProductCart sizeSelect={onSizeSelect}  passCartProps={product} />}
                 </div>
             </main>
-          
             <Footer />
         </section>
     );
